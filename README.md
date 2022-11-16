@@ -5,7 +5,8 @@ weTalk
 <p align="center">
 Nodejs + Express + MongoDB + HTML5 + Heroku
 </p>
-
+## Authors
+Weihong Yang | Yuan Wang
 ## Deploy on Heroku
 https://sdfsdfsdf11.herokuapp.com/
 
