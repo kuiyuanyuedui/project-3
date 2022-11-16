@@ -1,5 +1,6 @@
 import '../css/UserItem.css'
 import user_icon from '../icons/user.png'
+import PropTypes from "prop-types";
 
 export function UserItem(props) {
   const {user_item} = props
@@ -20,3 +21,7 @@ export function UserItem(props) {
     </div>
   </div>)
 }
+
+UserItem.propTypes = {
+  user_item: PropTypes.object
+};

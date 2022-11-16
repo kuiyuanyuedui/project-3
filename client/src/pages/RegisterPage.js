@@ -65,3 +65,5 @@ export function RegisterPage(props) {
   )
 }
 
+RegisterPage.propTypes = {
+};

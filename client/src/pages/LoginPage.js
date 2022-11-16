@@ -44,3 +44,6 @@ export function LoginPage(props) {
     </div>
   </div>)
 }
+
+LoginPage.propTypes = {
+};

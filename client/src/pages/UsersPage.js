@@ -25,3 +25,5 @@ export function UsersPage(props) {
     </div>
   )
 }
+UsersPage.propTypes = {
+};

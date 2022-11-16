@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {baseurl, getLoginUser} from "../config";
 import {TwitterItem} from "../components/TwitterItem";
+import PropTypes from "prop-types";
 
 
 export function HomePage(props) {
@@ -72,3 +73,6 @@ export function HomePage(props) {
   )
 }
 
+HomePage.propTypes = {
+  user_id: PropTypes.string
+};

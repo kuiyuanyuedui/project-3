@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {baseurl} from "../config";
 import {UserItem} from "../components/UserItem";
+import PropTypes from "prop-types";
 
 export function FollowPage(props) {
   let {user_id} = props
@@ -48,3 +49,7 @@ export function FollowPage(props) {
     </div>
   </div>)
 }
+
+FollowPage.propTypes = {
+  user_id: PropTypes.string
+};

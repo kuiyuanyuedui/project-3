@@ -6,6 +6,8 @@ import message_icon from '../icons/message.png'
 import axios from "axios";
 import {baseurl} from "../config";
 import {useState} from "react";
+import PropTypes from "prop-types";
+
 
 export function TwitterItem(props) {
   const {twitter_item} = props
@@ -57,3 +59,8 @@ export function TwitterItem(props) {
     </div>
   </div>)
 }
+
+TwitterItem.propTypes = {
+  twitter_item: PropTypes.object
+};
+

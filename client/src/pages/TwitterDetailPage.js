@@ -57,3 +57,5 @@ export function TwitterDetailPage(props) {
   )
 }
 
+TwitterDetailPage.propTypes = {
+};

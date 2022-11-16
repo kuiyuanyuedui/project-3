@@ -1,5 +1,6 @@
 import '../css/TwitterItem.css'
 import user_icon from '../icons/user.png'
+import PropTypes from "prop-types";
 
 export function ReplyItem(props) {
   const {reply_item} = props
@@ -22,3 +23,9 @@ export function ReplyItem(props) {
     </div>
   </div>)
 }
+
+ReplyItem.propTypes = {
+  reply_item: PropTypes.object
+};
+
+

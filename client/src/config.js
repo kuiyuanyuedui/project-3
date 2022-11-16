@@ -1,4 +1,4 @@
-export const baseurl = "http://localhost:3000"
+export const baseurl = "http://localhost"
 
 export function setLoginUser(value) {
   localStorage.setItem("loginuser", value)
