@@ -1,6 +1,6 @@
  
 <h1 align="center">
-FoodieLand
+weTalk
 </h1>
 <p align="center">
 Nodejs + Express + MongoDB + HTML5 + Heroku
@@ -10,7 +10,7 @@ Nodejs + Express + MongoDB + HTML5 + Heroku
 https://sdfsdfsdf11.herokuapp.com/
 
 ## Description
-- Web Development Project 2 : FoodieLand
+- Web Development Project 3 : weTalk
 - Project Objective : Apply the concepts learned in class by building a basic fullstack application with Nodejs, Express, javascript, MongoDB and HTML5. Deploy on Heroku.
 
 ## Project Intro
