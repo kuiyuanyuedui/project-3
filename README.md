@@ -1,6 +1,6 @@
  
 <h1 align="center">
-WeTalk
+WeTalk App
 </h1>
 <p align="center">
 React + Nodejs + Express + MongoDB + HTML5 + Heroku
@@ -14,7 +14,7 @@ https://mytwittera2.herokuapp.com/
 
 
 ## Description
-- Web Development Project 3 : WeTalk
+- Web Development Project 3 : WeTalk App
 - Project Objective : Apply the concepts learned in class by building a basic fullstack application with React, Nodejs, Express, javascript, MongoDB and HTML5. Deploy on Heroku.
 
 ## Project Intro
