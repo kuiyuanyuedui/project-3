@@ -1,27 +1,27 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const cors = require('cors');
-var {getDB} = require('./connection')
-const {ObjectId} = require("mongodb");
+import createError from "http-errors";
+import express from "express";
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+import cors from "cors";
+import {getDB} from ("./connection")
+import {ObjectId} from "mongodb";
 
-var app = express();
+const app = express();
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({origin: '*'}));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(cors({origin: "*"}));
 
-app.get('/', async function (req, res, next) {
-  res.render('index', {title: 'Express'});
+app.get("/", async function (req, res, next) {
+  res.render("index", {title: "Express"});
 
 });
 
-app.post('/post_twitter', async function (req, res, next) {
+app.post("/post_twitter", async function (req, res, next) {
   const {username, content} = req.body
   let user = await getDB().collection("users").findOne({username: username})
   let nickname = ""
@@ -37,7 +37,7 @@ app.post('/post_twitter', async function (req, res, next) {
   }
 })
 
-app.post('/reply_twitter', async function (req, res, next) {
+app.post("/reply_twitter", async function (req, res, next) {
   const {username, content, twitter_id} = req.body
   let user = await getDB().collection("users").findOne({username: username})
   let nickname = ""
@@ -51,7 +51,7 @@ app.post('/reply_twitter', async function (req, res, next) {
   }
 })
 
-app.post('/like_twitter', async function (req, res, next) {
+app.post("/like_twitter", async function (req, res, next) {
   const {twitter_id} = req.body
   let twitter = await getDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
   if (twitter) {
@@ -60,7 +60,7 @@ app.post('/like_twitter', async function (req, res, next) {
   res.json({success: true})
 })
 
-app.post('/dislike_twitter', async function (req, res, next) {
+app.post("/dislike_twitter", async function (req, res, next) {
   const {twitter_id} = req.body
   let twitter = await getDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
   if (twitter) {
@@ -69,14 +69,14 @@ app.post('/dislike_twitter', async function (req, res, next) {
   res.json({success: true})
 })
 
-app.post('/del_twitter', async function (req, res, next) {
+app.post("/del_twitter", async function (req, res, next) {
   const {twitter_id} = req.body
   await getDB().collection("twitters").deleteOne({_id: new ObjectId(twitter_id)})
   await getDB().collection("twitters_reply").deleteOne({twitter_id: twitter_id})
   res.json({success: true})
 })
 
-app.post('/list_twitters', async function (req, res, next) {
+app.post("/list_twitters", async function (req, res, next) {
   const {username,} = req.body
   let r = await getDB().collection("twitters").find({username: username}).sort({date: -1}).toArray()
   for (let twitter of r) {
@@ -85,13 +85,13 @@ app.post('/list_twitters', async function (req, res, next) {
   res.json(r)
 });
 
-app.post('/list_users', async function (req, res, next) {
+app.post("/list_users", async function (req, res, next) {
   const {username,} = req.body
   let r = await getDB().collection("users").find({}).sort({username: 1}).toArray()
   res.json(r)
 });
 
-app.post('/list_followers', async function (req, res, next) {
+app.post("/list_followers", async function (req, res, next) {
   const {username,} = req.body
   let r = await getDB().collection("follow").find({to: username}).sort({to: 1}).toArray()
   let result = []
@@ -105,7 +105,7 @@ app.post('/list_followers', async function (req, res, next) {
   res.json(result)
 });
 
-app.post('/list_followings', async function (req, res, next) {
+app.post("/list_followings", async function (req, res, next) {
   const {username,} = req.body
   let r = await getDB().collection("follow").find({from: username}).sort({to: 1}).toArray()
   let result = []
@@ -119,19 +119,19 @@ app.post('/list_followings', async function (req, res, next) {
   res.json(result)
 });
 
-app.post('/is_followed', async function (req, res, next) {
+app.post("/is_followed", async function (req, res, next) {
   const {from, to} = req.body
   let r = await getDB().collection("follow").findOne({from: from, to: to})
   res.json({result: r !== null})
 })
 
-app.post('/follow', async function (req, res, next) {
+app.post("/follow", async function (req, res, next) {
   const {from, to} = req.body
   let r = await getDB().collection("follow").insertOne({from: from, to: to})
   res.json({success: true})
 })
 
-app.post('/unfollow', async function (req, res, next) {
+app.post("/unfollow", async function (req, res, next) {
   const {from, to} = req.body
   let r = await getDB().collection("follow").deleteMany({from: from, to: to})
   res.json({success: true})
@@ -170,7 +170,7 @@ app.post("/login", async function (req, res, next) {
     res.json({success: false})
   }
 })
-app.get('*', (req, res) => res.sendFile(path.resolve('public', 'index.html')));
+app.get("*", (req, res) => res.sendFile(path.resolve("public", "index.html")));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -181,11 +181,11 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 
