@@ -14,7 +14,7 @@ https://mytwittera2.herokuapp.com/
 
 
 ## Description
-- Web Development Project 3 : WeTalk App
+- Web Development Project 3 : WeTalk Application
 - Project Objective : Apply the concepts learned in class by building a basic fullstack application with React, Nodejs, Express, javascript, MongoDB and HTML5. Deploy on Heroku.
 
 ## Project Intro
