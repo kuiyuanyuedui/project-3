@@ -2,7 +2,7 @@ import '../css/UserItem.css'
 import user_icon from '../icons/user.png'
 import PropTypes from "prop-types";
 
-export function UserItem(props) {
+function UserItem(props) {
   const {user_item} = props
   const {username, nickname} = user_item
   return (<div className={"user-item"}>
@@ -25,3 +25,5 @@ export function UserItem(props) {
 UserItem.propTypes = {
   user_item: PropTypes.object
 };
+
+export default UserItem;

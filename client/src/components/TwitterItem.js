@@ -9,7 +9,7 @@ import {useState} from "react";
 import PropTypes from "prop-types";
 
 
-export function TwitterItem(props) {
+function TwitterItem(props) {
   const {twitter_item} = props
   let {
     _id, username, nickname, date, content, replycount, likes, dislikes
@@ -63,4 +63,6 @@ export function TwitterItem(props) {
 TwitterItem.propTypes = {
   twitter_item: PropTypes.object
 };
+
+export default TwitterItem;
 

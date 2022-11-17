@@ -2,7 +2,7 @@ import '../css/TwitterItem.css'
 import user_icon from '../icons/user.png'
 import PropTypes from "prop-types";
 
-export function ReplyItem(props) {
+function ReplyItem(props) {
   const {reply_item} = props
   const {username, nickname, date, content} = reply_item
   return (<div className={"twitter-item"} style={{marginLeft: "20px"}}>
@@ -28,4 +28,5 @@ ReplyItem.propTypes = {
   reply_item: PropTypes.object
 };
 
+export default ReplyItem;
 

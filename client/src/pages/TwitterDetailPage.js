@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {TwitterItem} from "../components/TwitterItem";
 import {ReplyItem} from "../components/ReplyItem";
 
-export function TwitterDetailPage(props) {
+function TwitterDetailPage(props) {
 
   function refresh() {
     axios.post(`${baseurl}/get_twitter`, {twitter_id: id}).then(data => {
@@ -59,3 +59,5 @@ export function TwitterDetailPage(props) {
 
 TwitterDetailPage.propTypes = {
 };
+
+export default TwitterDetailPage;

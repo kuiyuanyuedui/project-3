@@ -3,7 +3,7 @@ import axios from "axios";
 import {baseurl, setLoginUser} from "../config";
 import {useEffect, useState} from "react";
 
-export function RegisterPage(props) {
+function RegisterPage(props) {
 
   let [username, setUsername] = useState("")
   let [password, setPassword] = useState("")
@@ -67,3 +67,5 @@ export function RegisterPage(props) {
 
 RegisterPage.propTypes = {
 };
+
+export default RegisterPage;

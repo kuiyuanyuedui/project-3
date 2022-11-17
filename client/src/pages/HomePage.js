@@ -6,7 +6,7 @@ import {TwitterItem} from "../components/TwitterItem";
 import PropTypes from "prop-types";
 
 
-export function HomePage(props) {
+function HomePage(props) {
   let {user_id} = props
   if (user_id === undefined || user_id === null) {
     const queryParameters = new URLSearchParams(window.location.search)
@@ -76,3 +76,5 @@ export function HomePage(props) {
 HomePage.propTypes = {
   user_id: PropTypes.string
 };
+
+export default HomePage;

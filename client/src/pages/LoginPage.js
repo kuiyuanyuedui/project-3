@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {baseurl, getLoginUser, setLoginUser} from "../config";
 
-export function LoginPage(props) {
+function LoginPage(props) {
 
   let [username, setUsername] = useState("")
   let [password, setPassword] = useState("")
@@ -47,3 +47,5 @@ export function LoginPage(props) {
 
 LoginPage.propTypes = {
 };
+
+export default LoginPage;

@@ -1,17 +1,17 @@
 import createError from "http-errors";
 import express from "express";
-import path from "path";
+import path, {dirname} from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
-import {getDB} from ("./connection")
+import {myDB} from ("./connection")
 import {ObjectId} from "mongodb";
 
 const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({origin: "*"}));
@@ -23,12 +23,12 @@ app.get("/", async function (req, res, next) {
 
 app.post("/post_twitter", async function (req, res, next) {
   const {username, content} = req.body
-  let user = await getDB().collection("users").findOne({username: username})
+  let user = await myDB().collection("users").findOne({username: username})
   let nickname = ""
   if (user) {
     nickname = user.nickname
     let date = new Date()
-    await getDB().collection("twitters").insertOne({
+    await myDB().collection("twitters").insertOne({
       username, nickname, date, content, replycount: 0, likes: 0, dislikes: 0,
     })
     res.json({success: true})
@@ -39,12 +39,12 @@ app.post("/post_twitter", async function (req, res, next) {
 
 app.post("/reply_twitter", async function (req, res, next) {
   const {username, content, twitter_id} = req.body
-  let user = await getDB().collection("users").findOne({username: username})
+  let user = await myDB().collection("users").findOne({username: username})
   let nickname = ""
   if (user) {
     nickname = user.nickname
     let date = new Date()
-    await getDB().collection("twitters_reply").insertOne({username, twitter_id, nickname, date, content})
+    await myDB().collection("twitters_reply").insertOne({username, twitter_id, nickname, date, content})
     res.json({success: true})
   } else {
     res.json({success: false})
@@ -53,26 +53,26 @@ app.post("/reply_twitter", async function (req, res, next) {
 
 app.post("/like_twitter", async function (req, res, next) {
   const {twitter_id} = req.body
-  let twitter = await getDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
+  let twitter = await myDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
   if (twitter) {
-    await getDB().collection("twitters").updateOne({_id: new ObjectId(twitter_id)}, {$set: {likes: twitter.likes + 1}})
+    await myDB().collection("twitters").updateOne({_id: new ObjectId(twitter_id)}, {$set: {likes: twitter.likes + 1}})
   }
   res.json({success: true})
 })
 
 app.post("/dislike_twitter", async function (req, res, next) {
   const {twitter_id} = req.body
-  let twitter = await getDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
+  let twitter = await myDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
   if (twitter) {
-    await getDB().collection("twitters").updateOne({_id: new ObjectId(twitter_id)}, {$set: {dislikes: twitter.dislikes + 1}})
+    await myDB().collection("twitters").updateOne({_id: new ObjectId(twitter_id)}, {$set: {dislikes: twitter.dislikes + 1}})
   }
   res.json({success: true})
 })
 
 app.post("/del_twitter", async function (req, res, next) {
   const {twitter_id} = req.body
-  await getDB().collection("twitters").deleteOne({_id: new ObjectId(twitter_id)})
-  await getDB().collection("twitters_reply").deleteOne({twitter_id: twitter_id})
+  await myDB().collection("twitters").deleteOne({_id: new ObjectId(twitter_id)})
+  await myDB().collection("twitters_reply").deleteOne({twitter_id: twitter_id})
   res.json({success: true})
 })
 
@@ -189,4 +189,4 @@ app.use(function (err, req, res, next) {
 });
 
 
-module.exports = app;
+export default app;

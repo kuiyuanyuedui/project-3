@@ -3,7 +3,7 @@ import {UserItem} from "../components/UserItem";
 import axios from "axios";
 import {baseurl} from "../config";
 
-export function UsersPage(props) {
+function UsersPage(props) {
 
   function refresh() {
     axios.post(`${baseurl}/list_users`, {}).then(data => {
@@ -27,3 +27,5 @@ export function UsersPage(props) {
 }
 UsersPage.propTypes = {
 };
+
+export default UsersPage;

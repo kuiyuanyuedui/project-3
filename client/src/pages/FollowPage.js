@@ -1,55 +1,69 @@
-import '../css/FollowPage.css';
+import "../css/FollowPage.css";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {baseurl} from "../config";
-import {UserItem} from "../components/UserItem";
+import { baseurl } from "../config";
+import { UserItem } from "../components/UserItem";
 import PropTypes from "prop-types";
 
-export function FollowPage(props) {
-  let {user_id} = props
-  const queryParameters = new URLSearchParams(window.location.search)
-  let id = queryParameters.get("id")
+function FollowPage(props) {
+  let { user_id } = props;
+  const queryParameters = new URLSearchParams(window.location.search);
+  let id = queryParameters.get("id");
   if (id) {
-    user_id = id
+    user_id = id;
   }
 
-  let [userList, setUserList] = useState([])
-  let [isFollowing, setIsFollowing] = useState(true)
+  let [userList, setUserList] = useState([]);
+  let [isFollowing, setIsFollowing] = useState(true);
 
   function showFollowings() {
-    console.log(user_id)
-    axios.post(`${baseurl}/list_followings`, {username: user_id}).then(data => {
-      setUserList(data.data)
-    })
-    setIsFollowing(true)
+    console.log(user_id);
+    axios
+      .post(`${baseurl}/list_followings`, { username: user_id })
+      .then((data) => {
+        setUserList(data.data);
+      });
+    setIsFollowing(true);
   }
 
   function showFollowers() {
-    console.log(user_id)
-    axios.post(`${baseurl}/list_followers`, {username: user_id}).then(data => {
-      setUserList(data.data)
-    })
-    setIsFollowing(false)
+    console.log(user_id);
+    axios
+      .post(`${baseurl}/list_followers`, { username: user_id })
+      .then((data) => {
+        setUserList(data.data);
+      });
+    setIsFollowing(false);
   }
 
   useEffect(() => {
-    showFollowings()
-  }, [])
+    showFollowings();
+  }, []);
 
-  return (<div>
+  return (
     <div>
-      <button className={"follower-btn1"} onClick={() => showFollowings()}>Followings</button>
-      <button className={"follower-btn2"} onClick={() => showFollowers()}>Followers</button>
+      <div>
+        <button className={"follower-btn1"} onClick={() => showFollowings()}>
+          Followings
+        </button>
+        <button className={"follower-btn2"} onClick={() => showFollowers()}>
+          Followers
+        </button>
+      </div>
+      <div>
+        {userList.map((x, idx) => (
+          <UserItem key={idx} user_item={x}></UserItem>
+        ))}
+        {userList.length === 0 && isFollowing ? "No following" : ""}
+        {userList.length === 0 && !isFollowing ? "No followers" : ""}
+      </div>
     </div>
-    <div>
-      {userList.map((x, idx) => <UserItem key={idx} user_item={x}></UserItem>)}
-      {userList.length === 0 && isFollowing ? "No following" : ""}
-      {userList.length === 0 && !isFollowing ? "No followers" : ""}
-    </div>
-  </div>)
+  );
 }
 
 FollowPage.propTypes = {
-  user_id: PropTypes.string
+  user_id: PropTypes.string,
 };
+
+export default FollowPage;
