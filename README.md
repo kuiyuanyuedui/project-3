@@ -23,10 +23,15 @@ https://mytwittera2.herokuapp.com/
 - Allowed user implement CRUD operations on it. The collections in the database would be based on the length from the user's current location and the numeric ranking of the chosen restaurant.
 
 ## Functionalities
-- User can login and sign up (sign out) account. @Yuan Wang
-- User can add/delete restaurants with address, upload pictures, and write reviews. @Weihong Yang
-- User can edit their profile reviews and rate by stars from scale 1 to 5. @Yuan Wang 
-- User can search profile to show the restaurant with related rating and comments. @Weihong Yang
+- User Register, Login and Logout @Yuan Wang
+- Broadcast posts and Respond to certain posts @Weihong Yang
+- Follow other accounts @Yuan Wang 
+- Check follower list @Weihong Yang
+
+## User Story
+- Jason, an introverted freshman, who would like to make friends with his classmates and connect his thoughts with followers or others through the use of posts.
+Posts can be a source of news, entertainment and etc.
+- Linda, a retiree, who is going to move to other state, she would love to get rid of her old stuff, she is looking for an application where can posts her sales information and follow the potential buyers.
 
 ## Class Info
 - Class Link: https://johnguerra.co/classes/webDevelopment_fall_2022/
