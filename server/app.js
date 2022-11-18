@@ -80,24 +80,24 @@ app.post("/list_twitters", async function (req, res, next) {
   const {username,} = req.body
   let r = await getDB().collection("twitters").find({username: username}).sort({date: -1}).toArray()
   for (let twitter of r) {
-    twitter.replycount = await getDB().collection("twitters_reply").countDocuments({twitter_id: twitter._id.toString()})
+    twitter.replycount = await myDB().collection("twitters_reply").countDocuments({twitter_id: twitter._id.toString()})
   }
   res.json(r)
 });
 
 app.post("/list_users", async function (req, res, next) {
   const {username,} = req.body
-  let r = await getDB().collection("users").find({}).sort({username: 1}).toArray()
+  let r = await myDB().collection("users").find({}).sort({username: 1}).toArray()
   res.json(r)
 });
 
 app.post("/list_followers", async function (req, res, next) {
   const {username,} = req.body
-  let r = await getDB().collection("follow").find({to: username}).sort({to: 1}).toArray()
+  let r = await myDB().collection("follow").find({to: username}).sort({to: 1}).toArray()
   let result = []
   for (let record of r) {
     let uname = record.from;
-    let user = await getDB().collection("users").findOne({username: uname})
+    let user = await myDB().collection("users").findOne({username: uname})
     if (user) {
       result.push(user)
     }
@@ -107,11 +107,11 @@ app.post("/list_followers", async function (req, res, next) {
 
 app.post("/list_followings", async function (req, res, next) {
   const {username,} = req.body
-  let r = await getDB().collection("follow").find({from: username}).sort({to: 1}).toArray()
+  let r = await myDB().collection("follow").find({from: username}).sort({to: 1}).toArray()
   let result = []
   for (let record of r) {
     let uname = record.to;
-    let user = await getDB().collection("users").findOne({username: uname})
+    let user = await myDB().collection("users").findOne({username: uname})
     if (user) {
       result.push(user)
     }
@@ -121,40 +121,40 @@ app.post("/list_followings", async function (req, res, next) {
 
 app.post("/is_followed", async function (req, res, next) {
   const {from, to} = req.body
-  let r = await getDB().collection("follow").findOne({from: from, to: to})
+  let r = await myDB().collection("follow").findOne({from: from, to: to})
   res.json({result: r !== null})
 })
 
 app.post("/follow", async function (req, res, next) {
   const {from, to} = req.body
-  let r = await getDB().collection("follow").insertOne({from: from, to: to})
+  let r = await myDB().collection("follow").insertOne({from: from, to: to})
   res.json({success: true})
 })
 
 app.post("/unfollow", async function (req, res, next) {
   const {from, to} = req.body
-  let r = await getDB().collection("follow").deleteMany({from: from, to: to})
+  let r = await myDB().collection("follow").deleteMany({from: from, to: to})
   res.json({success: true})
 })
 
 
 app.post("/get_twitter", async function (req, res, next) {
   const {twitter_id,} = req.body
-  let r = await getDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
+  let r = await myDB().collection("twitters").findOne({_id: new ObjectId(twitter_id)})
   res.json(r)
 })
 
 app.post("/get_twitter_replies", async function (req, res, next) {
   const {twitter_id,} = req.body
-  let r = await getDB().collection("twitters_reply").find({twitter_id: (twitter_id)}).toArray()
+  let r = await myDB().collection("twitters_reply").find({twitter_id: (twitter_id)}).toArray()
   res.json(r)
 })
 
 app.post("/register", async function (req, res, next) {
   const {username, password, nickname} = req.body
-  let r = await getDB().collection("users").find({username: username}).toArray()
+  let r = await myDB().collection("users").find({username: username}).toArray()
   if (r.length === 0) {
-    let rr = await getDB().collection("users").insertOne({username, password, nickname})
+    let rr = await myDB().collection("users").insertOne({username, password, nickname})
     res.json({success: true})
   } else {
     res.json({success: false, error: "duplicated username"})
@@ -163,7 +163,7 @@ app.post("/register", async function (req, res, next) {
 
 app.post("/login", async function (req, res, next) {
   const {username, password} = req.body
-  let r = await getDB().collection("users").find({username: username, password: password}).toArray()
+  let r = await myDB().collection("users").find({username: username, password: password}).toArray()
   if (r.length > 0) {
     res.json({success: true})
   } else {
