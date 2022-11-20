@@ -1,9 +1,11 @@
 import "../css/LoginPage.css"
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {baseurl, getLoginUser, setLoginUser} from "../config";
+import {post} from "../utils";
 
-function LoginPage(props) {
+// import {post} from "../utils";
+
+export function LoginPage(props) {
 
   let [username, setUsername] = useState("")
   let [password, setPassword] = useState("")
@@ -26,8 +28,8 @@ function LoginPage(props) {
     </div>
     <div>
       <button className={"btn-ok"} onClick={async () => {
-        let r = await axios.post(`${baseurl}/login`, {username, password})
-        if (r.data.success) {
+        let r = await post(`${baseurl}/login`, {username, password})
+        if (r.success) {
           setLoginUser(username)
           console.log(getLoginUser())
           window.location = '/home'
@@ -45,7 +47,4 @@ function LoginPage(props) {
   </div>)
 }
 
-LoginPage.propTypes = {
-};
-
-export default LoginPage;
+LoginPage.propTypes = {};

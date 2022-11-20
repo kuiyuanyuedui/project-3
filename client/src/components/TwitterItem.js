@@ -3,13 +3,13 @@ import user_icon from '../icons/user.png'
 import dislike_icon from '../icons/dislike.png'
 import like_icon from '../icons/like.png'
 import message_icon from '../icons/message.png'
-import axios from "axios";
 import {baseurl} from "../config";
 import {useState} from "react";
 import PropTypes from "prop-types";
+import {post} from "../utils";
 
 
-function TwitterItem(props) {
+export function TwitterItem(props) {
   const {twitter_item} = props
   let {
     _id, username, nickname, date, content, replycount, likes, dislikes
@@ -41,7 +41,7 @@ function TwitterItem(props) {
         <span className={"reply-count"}>{replycount}</span>
         <span className={"likes-icon"}>
           <img src={like_icon} alt="" onClick={async () => {
-            await axios.post(`${baseurl}/like_twitter`, {twitter_id: _id})
+            await post(`${baseurl}/like_twitter`, {twitter_id: _id})
             _likes++;
             setLikes(_likes);
           }}/>
@@ -49,7 +49,7 @@ function TwitterItem(props) {
         <span className={"likes-count"}>{_likes}</span>
         <span className={"dislikes-icon"}>
           <img src={dislike_icon} alt="" onClick={async () => {
-            await axios.post(`${baseurl}/dislike_twitter`, {twitter_id: _id})
+            await post(`${baseurl}/dislike_twitter`, {twitter_id: _id})
             _dislikes++;
             setDislikes(_dislikes);
           }}/>
@@ -63,6 +63,4 @@ function TwitterItem(props) {
 TwitterItem.propTypes = {
   twitter_item: PropTypes.object
 };
-
-export default TwitterItem;
 

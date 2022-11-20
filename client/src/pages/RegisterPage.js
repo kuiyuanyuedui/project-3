@@ -1,9 +1,9 @@
 import "../css/RegisterPage.css"
-import axios from "axios";
 import {baseurl, setLoginUser} from "../config";
 import {useEffect, useState} from "react";
+import {post} from "../utils";
 
-function RegisterPage(props) {
+export function RegisterPage(props) {
 
   let [username, setUsername] = useState("")
   let [password, setPassword] = useState("")
@@ -23,7 +23,7 @@ function RegisterPage(props) {
         <span>Username: </span>
         <input type={"text"} value={username} onChange={e => setUsername(e.target.value)}/>
       </div>
-      <div  className={"field"}>
+      <div className={"field"}>
         <span>Nickname: </span>
         <input type={"text"} value={nickname} onChange={e => setNickname(e.target.value)}/>
       </div>
@@ -39,12 +39,12 @@ function RegisterPage(props) {
         <button className={"btn-ok"} onClick={async () => {
           if (password.length > 0) {
             if (confirm == password) {
-              let r = await axios.post(`${baseurl}/register`, {username, password, nickname})
-              if (r.data.success) {
+              let r = await post(`${baseurl}/register`, {username, password, nickname})
+              if (r.success) {
                 setLoginUser(username)
                 window.location = '/'
               } else {
-                alert(r.data.error)
+                alert(r.error)
                 window.location = '/register'
               }
             } else {
@@ -65,7 +65,4 @@ function RegisterPage(props) {
   )
 }
 
-RegisterPage.propTypes = {
-};
-
-export default RegisterPage;
+RegisterPage.propTypes = {};

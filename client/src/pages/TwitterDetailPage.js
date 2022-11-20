@@ -1,17 +1,17 @@
-import axios from "axios";
 import {baseurl, getLoginUser} from "../config";
 import {useEffect, useState} from "react";
 import {TwitterItem} from "../components/TwitterItem";
 import {ReplyItem} from "../components/ReplyItem";
+import {post} from "../utils";
 
-function TwitterDetailPage(props) {
+export function TwitterDetailPage(props) {
 
   function refresh() {
-    axios.post(`${baseurl}/get_twitter`, {twitter_id: id}).then(data => {
-      setTwitter(data.data);
+    post(`${baseurl}/get_twitter`, {twitter_id: id}).then(data => {
+      setTwitter(data);
     })
-    axios.post(`${baseurl}/get_twitter_replies`, {twitter_id: id}).then(data => {
-      setReplies(data.data);
+    post(`${baseurl}/get_twitter_replies`, {twitter_id: id}).then(data => {
+      setReplies(data);
     })
   }
 
@@ -39,14 +39,14 @@ function TwitterDetailPage(props) {
               alert("The minimum length of twitter is 5")
               return
             }
-            await axios.post(`${baseurl}/reply_twitter`, {username: getLoginUser(), content: content, twitter_id: id})
+            await post(`${baseurl}/reply_twitter`, {username: getLoginUser(), content: content, twitter_id: id})
             refresh()
           }
         }>Reply
         </button>
       </div>
       <button className={"twitter-delbtn"} onClick={async () => {
-        await axios.post(`${baseurl}/del_twitter`, {twitter_id: id})
+        await post(`${baseurl}/del_twitter`, {twitter_id: id})
         window.location = '/home'
       }}>
         Delete this twitter
@@ -57,7 +57,4 @@ function TwitterDetailPage(props) {
   )
 }
 
-TwitterDetailPage.propTypes = {
-};
-
-export default TwitterDetailPage;
+TwitterDetailPage.propTypes = {};

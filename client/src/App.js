@@ -14,6 +14,9 @@ function App() {
     <Router>
       <div className={"navbar"}>
         <div className={"inner"}>
+          <div className={"nav-item"}>
+            <b>WeTalk</b>
+          </div>
           {(getLoginUser() == null || getLoginUser() === "") ? "" : (
             <>
               <div className={"nav-item"}>
