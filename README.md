@@ -18,7 +18,7 @@ https://mytwittera2.herokuapp.com/
 - Project Objective : Apply the concepts learned in class by building a basic fullstack application with React, Nodejs, Express, javascript, MongoDB and HTML5. Deploy on Heroku.
 
 ## Project Intro
-- Build a network of community application called 'WeTalk' where people can dive into their favorite restaurants. 
+- Build a network of community application called 'WeTalk' where people can socialize. 
 - Registered users submit content to the site such as links, text posts, images which are then voted stars by other members. 
 - Allowed user implement CRUD operations on it. The collections in the database would be based on the length from the user's current location and the numeric ranking of the chosen restaurant.
 
