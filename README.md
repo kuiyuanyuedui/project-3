@@ -7,7 +7,7 @@ React + Nodejs + Express + MongoDB + HTML5 + Heroku
 </p>
 
 ## Authors
-Weihong Yang | Yuan Wang
+Yuan Wang | Weihong Yang
 
 ## Deploy on Heroku
 https://mytwittera2.herokuapp.com/
