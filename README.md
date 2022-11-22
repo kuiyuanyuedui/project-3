@@ -65,25 +65,25 @@ Using your browser go to localhost: http://locahost:3000/
 
 ## Screenshots Preview:
 Login
-![](Screenshots/login.png)
+![](/client/src/icons/initial.png)
 
-Edit Portfolio
-![](Screenshots/edit_portfolio.png)
+Register
+![](/client/src/icons/regist.png)
 
-Add review/ Upload photo
-![](Screenshots/add_upload.png)
+Home 
+![](/client/src/icons/home.png)
 
-Review
-![](Screenshots/review.png)
+Post
+![](/client/src/icons/post.png)
 
-Portfolio
-![](Screenshots/portfolio.png)
+User List
+![](/client/src/icons/check.png)
 
-Search
-![](Screenshots/search.png)
+Follow Others
+![](/client/src/icons/follow.png)
 
-Rate
-![](Screenshots/rate.png)
+Unfollow 
+![](/client/src/icons/no-following.png)
 
 
 ### License
