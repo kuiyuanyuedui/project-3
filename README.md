@@ -61,7 +61,7 @@ Register
 User Post
 ![](Screenshots/User_Post.png)
 
-Comment/thumbs
+Comment
 ![](Screenshots/Comment.png)
 
 Following/Follower List
