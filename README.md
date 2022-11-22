@@ -40,7 +40,11 @@ Posts can be a source of news, entertainment and etc.
 - Demo: <a href=""> Video </a>
 
 
+## Slides
+- Google Slides: https://docs.google.com/presentation/d/1K2p4Wqjwk3cY-DhI2mw0c1Og03Yb5mW9gyhGEkyEC4k/edit?usp=sharing
 
+## Figma
+- https://www.figma.com/file/CexbxALoCFYypqBpng3CE7/User-Persona-Illustration-Templates-(Community)?node-id=0%3A1&t=Gmb1vkknSrdP5eyA-1
 ## For simply Clone or Download
 ```terminal
 $ git clone git@github.com:wyang10/Foodieland.git
