@@ -19,7 +19,7 @@ https://mytwittera2.herokuapp.com/
 
 ## Project Intro
 - Build a network of community application called 'WeTalk' where people can socialize. 
-- Registered users submit content to the site such as links, text posts, images which are then voted stars by other members. 
+- Create a social networking application where users broadcast and interact with short posts, user can follow others account and check followers list.
 - Allowed user implement CRUD operations on it. The collections in the database would be based on the 1000 synthetic records.
 
 ## Functionalities
