@@ -56,15 +56,15 @@ Login
 ![](Screenshots/Login.png)
 
 Register
-![](Screenshots/Regist.png)
+![](Screenshots/regist.png)
 
 User Post
 ![](Screenshots/User_Post.png)
 
-Comment
+Comment/thumbs
 ![](Screenshots/Comment.png)
 
-Following List
+Following/Follower List
 ![](Screenshots/Following_unFollow_List.png)
 
 
