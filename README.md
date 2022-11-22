@@ -40,7 +40,7 @@ https://mytwittera2.herokuapp.com/
 
 ## Instructions for Clone or Download
 ```terminal
-$ git clone git@github.com:wyang10/Foodieland.git
+$ git clone git@github.com:kuiyuanyuedui/project-3.git
 
 run in client:
 $ npm install	(change client/config.js --> export const baser = “”)
@@ -54,6 +54,9 @@ Using your browser go to localhost: http://locahost:80/
 ## Screenshots Preview:
 Login
 ![](Screenshots/Login.png)
+
+Register
+![](Screenshots/Regist.png)
 
 User Post
 ![](Screenshots/User_Post.png)
