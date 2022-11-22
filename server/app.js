@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(cors({origin: '*'}));
+app.use(cors({origin: '*'}));
 
 app.get('/', async function (req, res, next) {
   res.render('index', {title: 'Express'});

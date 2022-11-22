@@ -68,7 +68,7 @@ export function HomePage(props) {
         window.location = `/following?id=${user_id}`
       }}>Following/Followers
       </button>
-      {twitterList.map((x, idx) => <TwitterItem key={idx} twitter_item={x}></TwitterItem>)}
+      {twitterList.map((x, idx) => <TwitterItem key={x._id} twitter_item={x}></TwitterItem>)}
     </div>
   )
 }
