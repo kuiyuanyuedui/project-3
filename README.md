@@ -71,14 +71,3 @@ Following/Follower List
 ### License
 [MIT](LICENSE)
 
-## Usability Study --> Yuan Wang
-- Report slides: weTalk - Usability Study Slides
-- Usability Study with user 1/3: https://youtu.be/cNqw4-kPTyk
-- Usability Study with user 2/3: https://youtu.be/hd1of4_Cv-c
-- Usability Study with user 3/3: https://youtu.be/8weeRbDFgPQ
-  
-## Usability Study --> Weihong Yang
-- Report slides: weTalk - Usability Study Slides
-- Usability Study with user 1/3: https://youtu.be/cNqw4-kPTyk
-- Usability Study with user 2/3: https://youtu.be/hd1of4_Cv-c
-- Usability Study with user 3/3: https://youtu.be/8weeRbDFgPQ
