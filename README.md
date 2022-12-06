@@ -1,5 +1,4 @@
-<h1>We have finished the entire project-3</h1>
-<h1>We deserve the extra 40 points!!!<h1>
+<h1>100% completed of project-3 on Nov 22 for the 40 Bonus Points!!!<h1>
 <h1 align="center">
 WeTalk
 </h1>
