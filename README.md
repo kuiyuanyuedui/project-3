@@ -71,3 +71,11 @@ Following/Follower List
 ### License
 [MIT](LICENSE)
 
+Hi Yuan, I am Yukun and I just went through your project and finished the code review.
+You did an amazing job! The project is complete, everything works as designed, and I enjoy your innovative idea in the project.
+One thing I've noticed is that the deployment link is not working, hope you can fix it! (Because of the subscription of Heroku?)
+
+Other than that, you may also consider improving on usability and the design of the frontend, which will be covered in the coming courses.
+Overall, you have done a great job and the project is satisfying!
+Yukun
+
