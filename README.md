@@ -70,4 +70,9 @@ Following/Follower List
 
 ### License
 [MIT](LICENSE)
+  
+  
+Code Review by Xingjian Bi
+  Overall I love your WeTalk app design. There’s many buttons with different background color that matches it’s functionality. Also spacings for user list and tweets are just perfect. On my homepage the following/followers button can be removed because I can use navbar to navigate that page. Also one thing you may improve on is users should not follow themselves.
+  Your code is well organized and I can find your frontend and backend easily. I see you divide each page into your different component and use props to pass data. One advice is to put your css folder into your component and/or pages folder not your src folder in the frontend. 
 
