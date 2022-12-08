@@ -11,7 +11,8 @@ Yuan Wang | Weihong Yang
 
 ## Deploy on Heroku
 https://mytwittera2.herokuapp.com/
-
+## Updated Heroku link (because Heroku off the service)
+https://wetalk123.herokuapp.com/
 
 ## Description
 - Web Development Project 3 : WeTalk
